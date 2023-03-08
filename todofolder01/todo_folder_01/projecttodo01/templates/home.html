@@ -18,6 +18,7 @@
 <div class="container home_todo">
     <div class="row">
         <div class="col-md-6">
+            <h3 class="para-h3">Add Task</h3>
             <form method="POST" class="p-3 shadow">
               {% csrf_token %}
                 <div class="form-group">
@@ -31,14 +32,16 @@
         <div class="col-md-6">
             <h3 class="para-h3">Task to be completed</h3>
            {% for i in task_obj01 %}
-             <div class="shadow card">
-                 <div class="card-body">
+             <div class="card shadow card_home">
+               <a class="todo_home_link" href="{% url 'todoapp01:cbvdetail' i.id %}">
+                 <div class="card-body card_home_body">
                      <h5 class="card-title">{{i.taskName}}</h5>
                      <p class="card-text">{{i.taskPriority}}</p>
                      <p class="card-text">{{i.taskDate}}</p>
-                     <a href="{% url 'todoapp01:delete' i.id %}" class="btn btn-danger">Done</a>
-                     <a href="{% url 'todoapp01:update' i.id %}" class="btn btn-success">Update</a>
+                     <a href="{% url 'todoapp01:delete' i.id %}" class="btn btn-danger home_add_btn">Done</a>
+                     <a href="{% url 'todoapp01:update' i.id %}" class="btn btn-success home_add_btn">Update</a>
                  </div>
+               </a>
              </div><br>
            {% endfor %}
         </div>
