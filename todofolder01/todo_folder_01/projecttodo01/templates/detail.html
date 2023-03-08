@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block body %}
+{% block content %}
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -20,8 +20,8 @@
         <p class="card-text text-center">{{task_obj02.taskDate}}</p>
         <p class="card-text text-center text-justify">{{task_obj02.taskDescription}}</p>
         <div class="detail_add_btn">
-           <a href="{% url 'todoapp01:delete' task_obj02.id %}" class="btn btn-danger">Done</a>
-           <a href="{% url 'todoapp01:update' task_obj02.id %}" class="btn btn-success">Update</a>
+           <a href="{% url 'todoapp01:cbvdelete' task_obj02.id %}" class="btn btn-danger">Done</a>
+           <a href="{% url 'todoapp01:cbvupdate' task_obj02.id %}" class="btn btn-success">Update</a>
         </div>
     </div>
 </div><br>

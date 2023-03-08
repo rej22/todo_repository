@@ -1,7 +1,7 @@
 
 {% extends 'base.html' %}
 {% load static %}
-{% block body %}
+{% block content %}
 
 <div class="container-fluid">
     <div class="row">
@@ -39,8 +39,8 @@
                      <h5 class="card-title">{{i.taskName}}</h5>
                      <p class="card-text">{{i.taskPriority}}</p>
                      <p class="card-text">{{i.taskDate}}</p>
-                     <a href="{% url 'todoapp01:delete' i.id %}" class="btn btn-danger home_add_btn">Done</a>
-                     <a href="{% url 'todoapp01:update' i.id %}" class="btn btn-success home_add_btn">Update</a>
+                     <a href="{% url 'todoapp01:cbvdelete' i.id %}" class="btn btn-danger home_add_btn">Done</a>
+                     <a href="{% url 'todoapp01:cbvupdate' i.id %}" class="btn btn-success home_add_btn">Update</a>
                  </div>
                </a>
              </div><br>

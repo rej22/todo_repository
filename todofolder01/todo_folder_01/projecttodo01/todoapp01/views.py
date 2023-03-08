@@ -21,17 +21,17 @@ class TaskDetailView(DetailView):
 
 class TaskUpdateView(UpdateView):
     model = Task
-    template_name = 'update.html'
+    template_name = 'edit.html'
     fields = ('taskName', 'taskPriority', 'taskDate', 'taskDescription')
     context_object_name = 'task_obj03'
 
     def get_success_url(self):
-        return reverse_lazy('cbvdetail', kwargs= {'pk': self.object.id})
+        return reverse_lazy('todoapp01:cbvdetail', kwargs= {'pk': self.object.id})
 
 class TaskDeleteView(DeleteView):
     model = Task
     template_name = 'delete.html'
-    success_url = reverse_lazy('cbvhome')
+    success_url = reverse_lazy('todoapp01:cbvhome')
 
 
 def add(request):
@@ -45,18 +45,18 @@ def add(request):
         taskObj = Task(taskName= task_name, taskPriority= task_priority, taskDate= task_date, taskDescription= task_description)
         taskObj.save()
     return render(request, 'home.html', {'task_obj01': taskobj01})
+# #
+# def delete(request, taskid):
+#     task = Task.objects.get(id= taskid)
+#     if request.method == 'POST':
+#         task.delete()
+#         return redirect('/')
+#     return render(request, 'delete.html')
 #
-def delete(request, taskid):
-    task = Task.objects.get(id= taskid)
-    if request.method == 'POST':
-        task.delete()
-        return redirect('/')
-    return render(request, 'delete.html')
-
-def update(request, taskid):
-    task = Task.objects.get(id=taskid)
-    form_todo = TodoForm(request.POST or None, instance=task)
-    if form_todo.is_valid():
-        form_todo.save()
-        return redirect('/')
-    return render(request, 'edit.html', {'taskObj': task, 'formObj': form_todo})
+# def update(request, taskid):
+#     task = Task.objects.get(id=taskid)
+#     form_todo = TodoForm(request.POST or None, instance=task)
+#     if form_todo.is_valid():
+#         form_todo.save()
+#         return redirect('/')
+#     return render(request, 'edit.html', {'taskObj': task, 'formObj': form_todo})

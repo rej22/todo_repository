@@ -1,10 +1,37 @@
 {% extends 'base.html' %}
 
-{% block body %}
-   <form method="POST">
+{% block content %}
+
+  <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="banner">
+                <div class="banner-text">
+                    <h2>ToDo</h2>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+ <div class="card shadow delete_card mx-auto">
+     <div class="card-body">
+       <form method="POST" class="delete_form">
         {% csrf_token %}
-       <p><b>Are you sure this task done?</b></p>
-       <button class="btn btn-primary" type="submit">confirm</button>
-   </form>
+          {% csrf_token %}
+            <div class="card-body">
+               <p><b>Are you sure this task done?</b></p>
+                <div class="card-body confirm_dlt_card">
+                  <h5 class="card-title text-center">{{task.taskName}}</h5>
+                  <p class="card-text text-center">{{task.taskPriority}}</p>
+                  <p class="card-text text-center">{{task.taskDate}}</p>
+                </div>
+            </div>
+           <div>
+               <button class="btn btn-primary delete_add_btn" type="submit">confirm</button>
+               <a href="{% url 'todoapp01:cbvhome' %}" class="btn btn-primary confirm_dlt_back_home">Back To Home</a>
+           </div>
+       </form>
+     </div>
+ </div>
 
 {% endblock %}
