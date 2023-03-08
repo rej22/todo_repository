@@ -22,7 +22,7 @@ class TaskDetailView(DetailView):
 class TaskUpdateView(UpdateView):
     model = Task
     template_name = 'update.html'
-    fields = ('taskName', 'taskPriority', 'taskDate')
+    fields = ('taskName', 'taskPriority', 'taskDate', 'taskDescription')
     context_object_name = 'task_obj03'
 
     def get_success_url(self):
@@ -39,9 +39,10 @@ def add(request):
     if request.method == 'POST':
         task_name = request.POST.get('task_name', '')
         task_priority = request.POST.get('task_priority', '')
+        task_description = request.POST.get('task_description', '')
         task_date = request.POST.get('task_date', '')
 
-        taskObj = Task(taskName= task_name, taskPriority= task_priority, taskDate= task_date)
+        taskObj = Task(taskName= task_name, taskPriority= task_priority, taskDate= task_date, taskDescription= task_description)
         taskObj.save()
     return render(request, 'home.html', {'task_obj01': taskobj01})
 #

@@ -4,4 +4,4 @@ from django import forms
 class TodoForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['taskName', 'taskPriority', 'taskDate']
+        fields = ['taskName', 'taskPriority', 'taskDate', 'taskDescription']
