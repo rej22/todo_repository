@@ -1,16 +1,28 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner">
+                <div class="banner-text">
+                    <h2>ToDo</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-
-<div class="shadow card">
+<div class="shadow card card_detail mx-auto">
     <div class="card-body">
-        <h5 class="card-title">{{task_obj02.taskName}}</h5>
-        <p class="card-text">{{task_obj02.taskPriority}}</p>
-        <p class="card-text">{{task_obj02.taskDate}}</p>
-        <p class="card-text">{{task_obj02.taskDescription}}</p>
-        <a href="{% url 'todoapp01:delete' task_obj02.id %}" class="btn btn-danger">Done</a>
-        <a href="{% url 'todoapp01:update' task_obj02.id %}" class="btn btn-success">Update</a>
+        <h5 class="card-title text-center">{{task_obj02.taskName}}</h5>
+        <p class="card-text text-center">{{task_obj02.taskPriority}}</p>
+        <p class="card-text text-center">{{task_obj02.taskDate}}</p>
+        <p class="card-text text-center text-justify">{{task_obj02.taskDescription}}</p>
+        <div class="detail_add_btn">
+           <a href="{% url 'todoapp01:delete' task_obj02.id %}" class="btn btn-danger">Done</a>
+           <a href="{% url 'todoapp01:update' task_obj02.id %}" class="btn btn-success">Update</a>
+        </div>
     </div>
 </div><br>
 

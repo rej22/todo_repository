@@ -22,16 +22,13 @@ body{
 }
 .card_home_body{
     text-align: center;
-    background-image: linear-gradient(300deg, #f5f7fa 10%, #c3cfe2 100%);
-    width: 200px;
-    margin-left: 150px;
-    height: 175px;
+    background-image: linear-gradient(100deg, #f5f7fa 10%, #c3cfe2 100%);
 }
 .home_add_btn {
     margin-top: 5px;
 }
 .card_home {
-    background-color: #FF7F50;
+    background-image: linear-gradient(100deg, #f5f7fa 10%, #c3cfe2 100%);
     height: 200px;
 }
 .p-3{
@@ -52,3 +49,22 @@ body{
   color: black;
   text-decoration: none;
 }
+
+/**************
+    detail
+**************/
+
+.detail_add_btn {
+    text-align: center;
+    margin-left: 40px;
+}
+.card_detail {
+    width: 700px;
+    height: 500px;
+}
+
+
+/**************
+    detail
+**************/
+
